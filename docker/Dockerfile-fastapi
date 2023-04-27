@@ -1,0 +1,11 @@
+FROM python:3.11
+
+WORKDIR /app
+
+COPY ../backend-fastapi/ /app
+
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
+
+EXPOSE 3100
+
+CMD ["gunicorn", "main:app"]
